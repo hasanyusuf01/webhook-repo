@@ -3,6 +3,7 @@
 
 This project implements a Flask-based webhook receiver that listens to GitHub events (`push`, `pull_request`, `merge`) and stores them in MongoDB. A minimal frontend UI displays these events in real-time, refreshing every 15 seconds.
 
+[Video Tutorial](https://drive.google.com/file/d/1YwOKNxGPK7BU1cuQAd6gL_JMIsZLrJmm/view?usp=sharing)
 ---
 
 ## 🧱 Features
@@ -157,14 +158,6 @@ ngrok http 5000
 
 ```
 To receive GitHub webhooks, expose your local server to the internet:
-
-
-
-
-
-
-
-
 Copy the generated public URL and set it as your webhook endpoint in your GitHub repository settings (e.g., `https://<your-ngrok-id>.ngrok.io/webhook`).
 
 ---
@@ -195,6 +188,7 @@ Copy the generated public URL and set it as your webhook endpoint in your GitHub
 - **Dependencies:** If you see import errors, double-check your Python environment and `requirements.txt`.
 
 ---
+
 
 ## 📜 License
 
