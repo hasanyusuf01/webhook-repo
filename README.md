@@ -32,24 +32,42 @@ You can use either **Conda** or Python **virtual environment (`venv`)**.
 conda create -n webhook-env python=3.11 -y
 
 ### Activate the environment
-```conda activate webhook-env```
+```
+conda activate webhook-env
+
+```
 
 ### Install project dependencies
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+
+```
 
 
 ## 🔹 Option 2: Using venv
 
 ### Create a virtual environment
-```python3 -m venv venv```
+```
+python3 -m venv venv
+```
 
 ### Activate the environment
-```source venv/bin/activate ```  
+```
+source venv/bin/activate
+
+```
+
 ### Windows: 
-```venv\Scripts\activate```
+```
+venv\Scripts\activate
+
+```
 
 ## Install project dependencies
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+
+```
 
 ### 🔌 MongoDB Setup (Local)
 
@@ -57,7 +75,10 @@ Make sure MongoDB is installed and running.
 
 ### ✅ Start MongoDB:
 
-```sudo systemctl start mongodb```
+```
+sudo systemctl start mongodb
+
+```
 
 
 ### ✅ Optional: View stored data
@@ -72,7 +93,10 @@ mongosh
 
 Once dependencies are installed and MongoDB is running:
 
-```python3 app.py```
+```
+python3 app.py
+
+```
 
 
 The app will run at:  
@@ -82,7 +106,10 @@ The app will run at:
 
 ## 🌐 Expose Locally Running App Using ngrok
 ### Using ngrok for public endpoint:
-```ngrok http 5000```
+```
+ngrok http 5000
+
+```
 To receive GitHub webhooks, expose your local server to the internet:
 
 
