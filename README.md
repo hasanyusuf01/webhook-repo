@@ -29,8 +29,9 @@ You can use either **Conda** or Python **virtual environment (`venv`)**.
 ##  Option 1: Using Conda (Recommended)
 
 ### Create a new Conda environment
+```
 conda create -n webhook-env python=3.11 -y
-
+```
 ### Activate the environment
 ```
 conda activate webhook-env
@@ -42,7 +43,7 @@ conda activate webhook-env
 pip install -r requirements.txt
 
 ```
-
+---
 
 ## 🔹 Option 2: Using venv
 
@@ -54,32 +55,77 @@ python3 -m venv venv
 ### Activate the environment
 ```
 source venv/bin/activate
-
 ```
 
 ### Windows: 
 ```
 venv\Scripts\activate
-
 ```
 
-## Install project dependencies
+### Install project dependencies
 ```
 pip install -r requirements.txt
 
 ```
+---
 
-### 🔌 MongoDB Setup (Local)
+## 🔌 MongoDB Setup (Local)
 
-Make sure MongoDB is installed and running.
+### ✅ Step 1: Install MongoDB (if not already)
 
-### ✅ Start MongoDB:
+```
+sudo apt update
+sudo apt install -y mongodb
+sudo systemctl start mongodb
+sudo systemctl enable mongodb
+
+```
+Check Mongo is running:
+
+```
+sudo systemctl status mongodb
+
+```
+If not then start MongoDB:
 
 ```
 sudo systemctl start mongodb
 
 ```
+### ✅ Step 2: 
 
+Open Mongo Shell
+
+```
+mongosh
+
+```
+🛠 Step 4: Run This Inside Mongo Shell
+
+```
+use github_events
+
+db.createCollection("events", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["author", "from_branch", "to_branch", "action", "timestamp"],
+      properties: {
+        author: { bsonType: "string" },
+        from_branch: { bsonType: "string" },
+        to_branch: { bsonType: "string" },
+        action: {
+          enum: ["push", "pull_request", "merge"]
+        },
+        timestamp: { bsonType: "date" }
+      }
+    }
+  },
+  validationLevel: "strict"
+})
+
+```
+This creates a github_events.events collection that enforces your schema.
 
 ### ✅ Optional: View stored data
 
