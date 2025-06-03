@@ -26,44 +26,44 @@ You can use either **Conda** or Python **virtual environment (`venv`)**.
 
 ---
 
-###  Option 1: Using Conda (Recommended)
+##  Option 1: Using Conda (Recommended)
 
-# Create a new Conda environment
+### Create a new Conda environment
 conda create -n webhook-env python=3.11 -y
 
-# Activate the environment
+### Activate the environment
 ```conda activate webhook-env```
 
-# Install project dependencies
+### Install project dependencies
 ```pip install -r requirements.txt```
 
 
-### 🔹 Option 2: Using venv
+## 🔹 Option 2: Using venv
 
-# Create a virtual environment
+### Create a virtual environment
 ```python3 -m venv venv```
 
-# Activate the environment
+### Activate the environment
 ```source venv/bin/activate ```  
-# Windows: 
+### Windows: 
 ```venv\Scripts\activate```
 
-# Install project dependencies
+## Install project dependencies
 ```pip install -r requirements.txt```
 
 ### 🔌 MongoDB Setup (Local)
 
 Make sure MongoDB is installed and running.
 
-✅ Start MongoDB:
+###✅ Start MongoDB:
 
 ```sudo systemctl start mongodb```
 
 
-✅ Optional: View stored data
+###✅ Optional: View stored data
 
-mongosh
 ```
+mongosh
 > use github_events
 > db.events.find().pretty()
 ```
