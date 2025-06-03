@@ -55,12 +55,12 @@ conda create -n webhook-env python=3.11 -y
 
 Make sure MongoDB is installed and running.
 
-###✅ Start MongoDB:
+### ✅ Start MongoDB:
 
 ```sudo systemctl start mongodb```
 
 
-###✅ Optional: View stored data
+### ✅ Optional: View stored data
 
 ```
 mongosh
