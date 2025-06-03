@@ -77,10 +77,59 @@ Once dependencies are installed and MongoDB is running:
 
 python3 app.py
 
-The app will run on:
 
-http://localhost:5000
+The app will run at:  
+[http://localhost:5000](http://localhost:5000)
 
+---
+
+## 🌐 Expose Locally Running App Using ngrok
 ### Using ngrok for public endpoint:
-
 ngrok http 5000
+To receive GitHub webhooks, expose your local server to the internet:
+
+
+
+
+
+
+
+
+Copy the generated public URL and set it as your webhook endpoint in your GitHub repository settings (e.g., `https://<your-ngrok-id>.ngrok.io/webhook`).
+
+---
+
+## 🔑 GitHub Webhook Configuration
+
+1. Go to your repository **Settings** > **Webhooks** > **Add webhook**.
+2. Set the **Payload URL** to your public ngrok URL + `/webhook` (e.g., `https://<your-ngrok-id>.ngrok.io/webhook`).
+3. Set **Content type** to `application/json`.
+4. Select individual events or "Just the push event" as needed.
+5. Click **Add webhook**.
+
+---
+
+## 📝 Additional Notes
+
+- **Security:** For production, secure your endpoints and consider authentication.
+- **Polling Interval:** The frontend UI refreshes every 15 seconds; you can adjust this in `index.html`.
+- **MongoDB URI:** If using a remote MongoDB instance, update the connection URI in `app.py`.
+- **Clear Events:** Use the `/clear` endpoint to remove all stored events.
+
+---
+
+## 💡 Troubleshooting
+
+- **MongoDB Connection Issues:** Ensure MongoDB is running and accessible.
+- **Webhook Delivery Issues:** Check your ngrok tunnel is active and the URL is correct in GitHub settings.
+- **Dependencies:** If you see import errors, double-check your Python environment and `requirements.txt`.
+
+---
+
+## 📜 License
+
+MIT License
+
+---
+
+
